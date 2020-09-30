@@ -2,8 +2,23 @@
 
 Code Mostly by Joe Geisz
 Some remnants from Example 1
-CSCI4229/5229 Spring 2020
+CU Boulder CSCI4229/5229 Spring 2020
+Willem Schreuder
 
+
+Build instructions:
+	Dependencies:
+		qmake
+		qt
+		
+	1) Download/Fork repository
+	2) In Terminal cd into the directory
+	3) Run:
+		$qmake sierpinski3d.pro
+		$make
+		(on mac:)
+		$cd Contents/MacOS/
+		$./sierpinski3d
 
 
 Explanation of the fractals:
@@ -127,23 +142,4 @@ Visualization Program:
 			-Sub-cube coloring gives each cube a color based on which sub cube it is in
 			-Trajectory coloring gives each cube the average of the color of the sub cube it is in and the color of the sub cube it came from in the last step
 			-XYZ coloring shows the 3D location of the cube by its color, treating the whole cube as the rbg color-space, colored by the point in center of the cube
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
