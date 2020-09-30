@@ -1,0 +1,149 @@
+3D Sierpinski Viewer
+
+Code Mostly by Joe Geisz
+Some remnants from Example 1
+CSCI4229/5229 Spring 2020
+
+
+
+Explanation of the fractals:
+
+	This programs visualizes a class of fractals I defined and studied for my 
+	masters thesis. They extend the classical 2D set of fractals called the 
+	Sierpinski Relatives into 3D. The 2D fractals are described here:
+
+	http://larryriddle.agnesscott.org/ifs/siertri/boxVariation.htm
+
+	The iterative process to create the  Sierpinski Relatives is to:
+
+		1) split a square into 4 sub-squares
+		2) remove 1
+		3) shrink the resulting shape
+		4) create 3 copies of this shape, one for each of the original 3 sub-squares
+		5) apply a symmetry transform of the square to each one of these sub-square shapes
+		6) Repeat steps 3-5
+
+	My Extension of the relatives to 3D uses an alagous process but in 3 Dimensions:
+
+		1) split a cube into 8 sub-cubes
+		2) remove n of them (0 < n < 8) so that we have m = 8-n remaining
+		3) shrink the resulting shape
+		4) create m copies of this shape, one for each of the m sub-cubes
+		5) apply a symmetry transform of the cube to each one of these sub-cube shapes
+		6) Repeat steps 3-5
+
+	As a numbering system for the fractals we have an 8-tuple where each element corresponds to one of the subcubes. We number the cubes, arbitrarily:
+
+						     5---------6
+		 				    /|        /|
+						   1---------2 |
+						   | |       | |
+						   | 7-------|-8
+						   |/        |/
+						   3---------4
+
+	Then the tuple represents which element of the octahedral symmetry group (the full symmetry group of the cube) we assign to each subcube. If we remove the cube we put -1, and the 48 symmetries are numbered 0-47.
+	Excluding the trivial (-1,-1,-1,-1,-1,-1,-1,-1), any that don't remove any cube ( no -1's in the tuple), and attractors that are simply rotations of eachother we find there are 105,284,377,928 possible attractors to choose from. 
+
+	We can also create an Iterated Function System (IFS) that has any one of these fractals as 
+	the attractor. In the 3D case we will have m affine contraction mappings describing this system, 
+	and by choosing a random point and iterating it through a randomly chosen one of these transformations
+	at each step we collect a point cloud that approximates this fractal. This is what is shown in the IFS mode in the program. In the Cube Iterator mode we visualize the process described above with sub-cubes.
+
+
+
+Visualization Program:
+
+	Parameter Settings(Bottom Left):
+		To choose which fractal to visualize use the parameter settings.
+
+			Explicitly choose a fractal: 
+				type in the 8-tuple elements into the row of parameter boxes
+
+			Choose a random fractal with m subcubes:
+				click the random button with the m of your choosing
+
+	General Settings(Top right):
+		General viewing settings applicable in either viewing mode.
+
+			Shader: Choose a shader. Most things work best in "None"  mode, but others are some interesting shaders I used in homework 2. "raster" option in IFS view requires a shader to be selected.
+
+			Background: set the background color
+
+			Projection: Choose Orthogonal or Perspective view
+
+			Lighting: turn on or off lighting
+
+			Frame: View the subcubes' frame
+
+			Autorotate: Spins the fractal automatically in the theta direction
+
+
+	There are 3 Visualization modes:
+		1) Tutorial 
+		1) IFS View
+		2) Cube Iteration View
+
+	Choose which mode with the labled tabs. Each has their own settings
+
+	Tutorial Mode settings:
+
+		Example
+			-choose from one of the pre-set examples of fractals
+			-EX01: shows how one cube is iteratively shrunk and replicated
+			-EX02: shows how the parameters tell you which cube to look at
+			-EX03: shows how you can choose a different symmetry to replicate
+			-EX04: shows how multiple cubes replicate
+			-EX05: shows how choosing different symmetries changes the fractal
+			-EX06: displays the Sierpinski Tetrahedron
+			-EX07: displays a Fractal with voids in the middle
+			-EX08: displays a way to form the 2D Sierpinski Gasket
+		Iterate
+			-animates the first 3 iterations of forming the fractal from cubes
+
+	IFS View mode settings:
+
+		Number of Points
+			-Sets the number of points to iterate to fill in the attractor
+			-Min is 1 but you can't really see anything with fewer than 1000 points
+			-Max is 1000000 but program slows down a bit with this many
+
+		Coloring
+			-Sub-cube coloring gives each point a color based on which sub cube it is in
+			-Trajectory coloring gives each point the average of the color of the sub cube it is in and the color of the previous point in the iteration process
+			-XYZ coloring shows the 3D location of the point by its color, treating the whole cube as the rbg color-space
+
+		Raster
+			-turns on point rastering so points take up more than one pixel (only works with shaders turned on)
+
+	Cube Iteration View mode settings:
+
+		Number of Iterations
+			-Number of times to repeat the iteration process
+			-Min is 1, shows which cubes are removed
+			-Max is 8, slows down for fractals with m > 4
+
+		Coloring
+			-Sub-cube coloring gives each cube a color based on which sub cube it is in
+			-Trajectory coloring gives each cube the average of the color of the sub cube it is in and the color of the sub cube it came from in the last step
+			-XYZ coloring shows the 3D location of the cube by its color, treating the whole cube as the rbg color-space, colored by the point in center of the cube
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

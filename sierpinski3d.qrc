@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>sierpinski3d.vert</file>
+        <file>sierpinski3d.frag</file>
+        <file>rand.frag</file>
+        <file>rand.vert</file>
+        <file>wood.frag</file>
+        <file>wood.vert</file>
+        <file>PerlinNoise.frag</file>
+        <file>PerlinNoise.vert</file>
+    </qresource>
+</RCC>
