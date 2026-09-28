@@ -7,6 +7,8 @@ SOURCES = sierpinski3d.cpp sierpinski3dviewer.cpp sierpinski3dopengl.cpp Object.
     attractor.cpp \
     cubeiterator.cpp \
     tutorialobject.cpp
-QT += opengl
+QT += openglwidgets
+# QT += opengl
+# QT += widgets
 RESOURCES = sierpinski3d.qrc
 win32:{LIBS += -lopengl32}

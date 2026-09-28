@@ -6,6 +6,9 @@
 #define SIERPINSKI3DOPENGL_H
 
 #include <QtOpenGL>
+#include <QOpenGLWidget>
+#include <QPushButton>
+#include <QCheckBox>
 #include <QString>
 #include <QVector>
 #include <QTimer>

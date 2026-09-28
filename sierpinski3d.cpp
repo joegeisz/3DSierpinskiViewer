@@ -5,6 +5,7 @@
 //
 
 #include <QApplication>
+#include <QOpenGLWidget>
 #include "sierpinski3dviewer.h"
 
 //

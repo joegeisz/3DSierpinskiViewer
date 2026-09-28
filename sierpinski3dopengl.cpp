@@ -3,6 +3,8 @@
 //
 #include "sierpinski3dopengl.h"
 #include <QtOpenGL>
+#include <QOpenGLWidget>
+#include <QApplication>
 #include <QMessageBox>
 #include <math.h>
 #define Cos(th) cos(M_PI/180*(th))
@@ -792,7 +794,7 @@ void Sierpinski3dopengl::mouseMoveEvent(QMouseEvent* e)
 void Sierpinski3dopengl::wheelEvent(QWheelEvent* e)
 {
    //  Zoom out
-   if (e->delta()<0)
+   if (e->angleDelta().y()<0)
       dim += 0.1;
    //  Zoom in
    else if (dim>1)
